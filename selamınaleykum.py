@@ -315,7 +315,7 @@ def co_op():
 
 
 
-def osuruk():
+def playHangman():
     gr=True
     score=0
     while (gr):
@@ -464,7 +464,7 @@ while(tr):
     decision=input("1-Singleplayer 2-Co-op\n")
     if decision=="1":
         
-        print(osuruk())
+        print(playHangman())
         tr=False
     elif decision=="2":
         print(co_op())
