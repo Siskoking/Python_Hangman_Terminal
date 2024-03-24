@@ -100,9 +100,9 @@ def co_op():
                     guess=input(f"Guess a letter or word you have {tries} tries Press 1 to Hint you have {hint_hak} hint hakkı\n")
                     if guess.isalpha() and len(guess)==1:
                         if guess in guessed_letters:
-                            print("Bunu ztn denemişsin dalga mı geçion")
+                            print("You've already tried that, are you kidding me?")
                         elif guess not in word:
-                            print("Kelime de bu harf yok")
+                            print("There is no this letter in the word")
                             print(bluword)
                             guessed_letters.append(guess)
                             tries-=1
@@ -115,11 +115,11 @@ def co_op():
                             
                             if "_" not in bluword :
                                 print(bluword)
-                                print("Player2 bu turu kazandı")
+                                print("Player2 win this round")
                                 
                                 guessed=True
                             else:
-                                print("Bu harf kelimede var")
+                                print("This letter is in the word")
                                 print(bluword)
                     elif(guess=="1" or guess==1)and hint_hak>0:
                         hebele =True
@@ -217,9 +217,9 @@ def co_op():
                     guess=input(f"Guess a letter or word you have {tries} tries Press 1 to Hint you have {hint_hak} hint hakkı\n")
                     if guess.isalpha() and len(guess)==1:
                         if guess in guessed_letters:
-                            print("Bunu ztn denemişsin dalga mı geçion")
+                            print("You've already tried that, are you kidding me?")
                         elif guess not in word:
-                            print("Kelime de bu harf yok")
+                            print("There is no this letter in the word")
                             print(bluword)
                             guessed_letters.append(guess)
                             tries-=1
@@ -232,11 +232,11 @@ def co_op():
                             
                             if "_" not in bluword :
                                 print(bluword)
-                                print("Player1 bu turu kazandı")
+                                print("Player1 win this round")
                                 
                                 guessed=True
                             else:
-                                print("Bu harf kelimede var")
+                                print("This letter is in the word")
                                 print(bluword)
                     elif(guess=="1" or guess==1)and hint_hak>0:
                         hebele =True
@@ -256,7 +256,7 @@ def co_op():
                                 bluword[i]=hint
                                 print(bluword)
                     elif hint_hak<=0:
-                        print("You have no more hint hakkı")
+                        print("You have no more hint clue")
                         print(bluword)
                     elif guess.isdigit():
                         print("NOT DİGİT")
@@ -398,24 +398,24 @@ def playHangman():
             bluword.append(i)
     print("\n")
     print(bluword)
-    print(f"Kelime bu kategoriden {randcatname}")
+    print(f"The word is from this category {randcatname}")
     
     while (not guessed and tries>0) or ("_" not in bluword) :
         print(print_hangman(tries))
         guess=input(f"Please guess a letter and press 1 to take hint you have {hint_hak} \n").lower()
         if len(guess)==1 and guess.isalpha():
             if guess in guessed_letters:
-                print("Bunu ztn denemişsin dalga mı geçion")
+                print("You've already tried that, are you kidding me?")
             elif guess not in word:
-                print(guess,"Kelime de bu harf yok")
+                print(guess,"There is no this letter in the word")
                 print(bluword)
                 guessed_letters.append(guess)
                 tries-=1
                 score-=100
             elif guess =="" :
-                print("Lütfen bir değer girin")
+                print("Please enter a value")
             else:
-                print("Bu harf kelimede var")
+                print("This letter is in the word")
                 guessed_letters.append(guess)
                 indices = [i for i, letter in enumerate(word) if letter == guess]
                 for index in indices:
@@ -423,7 +423,7 @@ def playHangman():
                 
                 if "_" not in bluword :
                     print(bluword)
-                    print("BRAVO KAZANDIN")
+                    print("BRAVO YOU WIN")
                     return score
                 print(bluword)
         elif(guess=="1" or guess==1)and hint_hak>0:
@@ -445,10 +445,10 @@ def playHangman():
                     bluword[i]=hint
                     print(bluword)
         elif hint_hak<=0:
-            print("You have no more hint hakkı")
+            print("You have no more hint clue")
     if ("_" not in  bluword):
         print(bluword)
-        print("BRAVO KAZANDIN")
+        print("BRAVO YOU WIN")
         return score
     else:
         print_hangman(tries)
